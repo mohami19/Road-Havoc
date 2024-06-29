@@ -1,21 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObstacleMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 2f;
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D rd;
 
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rd = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        rigidbody.velocity = Vector2.down * moveSpeed;
+        rd.velocity = Vector2.down * moveSpeed;
         //rigidbody.velocity = Vector2.left * moveSpeed * Time.deltaTime;
     }
 }
