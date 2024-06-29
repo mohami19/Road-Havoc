@@ -28,12 +28,13 @@ public class PlayerMovement : MonoBehaviour
     private void Awake() {
         turnRightAnimationId = Animator.StringToHash("TurnRight");
         turnLeftAnimationId = Animator.StringToHash("TurnLeft");
+        animator.speed = animator.speed * 2.5f;
     }
 
 
     // Update is called once per frame
     void Update() {
-        score += (Time.deltaTime);
+        score += Time.deltaTime;
         scoreText.text =  Mathf.RoundToInt(score).ToString();
         SuddenMovement();
     }
@@ -69,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 targetPosition = initialPosition - movement;
 
         // Interpolate the position over the duration of the animation
-        float duration = turnRightAnimationClip.length / animator.speed;
+        float duration = turnRightAnimationClip.length /( animator.speed * 5);
         float elapsedTime = 0;
 
         while (elapsedTime < duration)
@@ -92,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 targetPosition = initialPosition + movement;
 
         // Interpolate the position over the duration of the animation
-        float duration = turnLeftAnimationClip.length / animator.speed;
+        float duration = turnLeftAnimationClip.length / ( animator.speed * 5);
         float elapsedTime = 0;
 
         while (elapsedTime < duration)
