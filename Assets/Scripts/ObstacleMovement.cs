@@ -3,6 +3,7 @@ using UnityEngine;
 public class ObstacleMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 2f;
+    private float distanceToLive = -10f;
     private GameManager gm;
     private Rigidbody2D rd;
 
@@ -17,6 +18,13 @@ public class ObstacleMovement : MonoBehaviour
     {
         float speedMultiplier = gm.GetComponent<GameManager>().GetSpeedMultiplier();
         rd.velocity = Vector2.down * (moveSpeed + speedMultiplier);
+        DestroyObject();
         //rigidbody.velocity = Vector2.left * moveSpeed * Time.deltaTime;
+    }
+
+    void DestroyObject(){
+        if (transform.position.y < distanceToLive) {
+            gameObject.SetActive(false);
+        }
     }
 }
