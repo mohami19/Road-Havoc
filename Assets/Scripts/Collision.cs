@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Collision : MonoBehaviour
 {
@@ -13,5 +14,6 @@ public class Collision : MonoBehaviour
     }
     void DestroyPlayer(){
         gameObject.SetActive(false);
+        SceneManager.LoadScene(0);
     }
 }

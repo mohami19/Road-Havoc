@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,6 +11,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AnimationClip turnLeftAnimationClip;
     private int turnRightAnimationId;
     private int turnLeftAnimationId;
+
+
+    [SerializeField] TextMeshProUGUI scoreText;
+    private float score = 0;
 
 
     private Vector3 startPosition;
@@ -28,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        score += (Time.deltaTime);
+        scoreText.text =  Mathf.RoundToInt(score).ToString();
         SuddenMovement();
     }
 
