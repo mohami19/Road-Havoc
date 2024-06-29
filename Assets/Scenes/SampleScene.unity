@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 53944083}
-  - component: {fileID: 53944082}
   m_Layer: 0
   m_Name: ObsticleSpawnerPoint (1)
   m_TagString: Untagged
@@ -140,23 +139,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &53944082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53944081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b57078ae8db9748bd606350cb4958b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnChance: 0.4
-  obstacles:
-  - {fileID: 5187307052556972461, guid: c6c39ec3de7cc2949a8d996023dd99d1, type: 3}
-  - {fileID: 290548883565985789, guid: ec94718a7cf42244fa3a6a6372cd86a5, type: 3}
-  - {fileID: 8446712759301585155, guid: 0f7b59e21b23b65429729be7fadc4977, type: 3}
 --- !u!4 &53944083
 Transform:
   m_ObjectHideFlags: 0
@@ -426,11 +408,11 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.5, z: 0}
+  m_LocalPosition: {x: 0, y: 10.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 551599597}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &551599595
 GameObject:
@@ -444,6 +426,7 @@ GameObject:
   - component: {fileID: 551599596}
   - component: {fileID: 551599598}
   - component: {fileID: 551599599}
+  - component: {fileID: 551599600}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -515,8 +498,7 @@ Transform:
   m_LocalPosition: {x: -0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 519420032}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &551599598
@@ -531,6 +513,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf0580a3b58eee4a99db549ac06d687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 551599600}
+  turnRightAnimationClip: {fileID: 7400000, guid: 0e08e286a1827a54898251e375885bfb, type: 2}
+  turnLeftAnimationClip: {fileID: 7400000, guid: a7b4af40a01b15344a16e695d3f9c8e9, type: 2}
 --- !u!136 &551599599
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -554,6 +539,27 @@ CapsuleCollider:
   m_Height: 4
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &551599600
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551599595}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: accb4de643003d748b888ae993583260, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &747795864
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,7 +653,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 790757903}
-  - component: {fileID: 790757902}
   m_Layer: 0
   m_Name: ObsticleSpawnerPoint
   m_TagString: Untagged
@@ -655,23 +660,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &790757902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 790757901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b57078ae8db9748bd606350cb4958b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnChance: 0.4
-  obstacles:
-  - {fileID: 5187307052556972461, guid: c6c39ec3de7cc2949a8d996023dd99d1, type: 3}
-  - {fileID: 290548883565985789, guid: ec94718a7cf42244fa3a6a6372cd86a5, type: 3}
-  - {fileID: 8446712759301585155, guid: 0f7b59e21b23b65429729be7fadc4977, type: 3}
 --- !u!4 &790757903
 Transform:
   m_ObjectHideFlags: 0
@@ -696,7 +684,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1101994374}
-  - component: {fileID: 1101994373}
   m_Layer: 0
   m_Name: ObsticleSpawnerPoint (3)
   m_TagString: Untagged
@@ -704,23 +691,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1101994373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101994372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b57078ae8db9748bd606350cb4958b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnChance: 0.4
-  obstacles:
-  - {fileID: 5187307052556972461, guid: c6c39ec3de7cc2949a8d996023dd99d1, type: 3}
-  - {fileID: 290548883565985789, guid: ec94718a7cf42244fa3a6a6372cd86a5, type: 3}
-  - {fileID: 8446712759301585155, guid: 0f7b59e21b23b65429729be7fadc4977, type: 3}
 --- !u!4 &1101994374
 Transform:
   m_ObjectHideFlags: 0
@@ -885,7 +855,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1194633395}
-  - component: {fileID: 1194633394}
   m_Layer: 0
   m_Name: ObsticleSpawnerPoint (4)
   m_TagString: Untagged
@@ -893,23 +862,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1194633394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1194633393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b57078ae8db9748bd606350cb4958b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnChance: 0.4
-  obstacles:
-  - {fileID: 5187307052556972461, guid: c6c39ec3de7cc2949a8d996023dd99d1, type: 3}
-  - {fileID: 290548883565985789, guid: ec94718a7cf42244fa3a6a6372cd86a5, type: 3}
-  - {fileID: 8446712759301585155, guid: 0f7b59e21b23b65429729be7fadc4977, type: 3}
 --- !u!4 &1194633395
 Transform:
   m_ObjectHideFlags: 0
@@ -1270,7 +1222,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1849847675}
-  - component: {fileID: 1849847674}
   m_Layer: 0
   m_Name: ObsticleSpawnerPoint (2)
   m_TagString: Untagged
@@ -1278,23 +1229,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1849847674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1849847673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b57078ae8db9748bd606350cb4958b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnChance: 0.4
-  obstacles:
-  - {fileID: 5187307052556972461, guid: c6c39ec3de7cc2949a8d996023dd99d1, type: 3}
-  - {fileID: 290548883565985789, guid: ec94718a7cf42244fa3a6a6372cd86a5, type: 3}
-  - {fileID: 8446712759301585155, guid: 0f7b59e21b23b65429729be7fadc4977, type: 3}
 --- !u!4 &1849847675
 Transform:
   m_ObjectHideFlags: 0
@@ -1353,6 +1287,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 519420032}
   - {fileID: 1856039510}
   - {fileID: 551599597}
   - {fileID: 790757903}
