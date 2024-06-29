@@ -6,6 +6,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] obstacles;
     [SerializeField] private float timer;
     [SerializeField] private float timeBetweenSpawns = 5f;
+    [SerializeField] private float speedMultiplier = 3f;
+
+    public float GetSpeedMultiplier(){
+        return speedMultiplier;
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +21,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        speedMultiplier += Time.deltaTime * 0.1f;
+
         timer += Time.deltaTime;
+        
         if (timer > timeBetweenSpawns) {
             timer = 0;
             int randPoint = Random.Range(0,spawnPoints.Length);
