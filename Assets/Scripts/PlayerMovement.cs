@@ -20,9 +20,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 startPosition;
     private Vector3 endPosition;
     private float suddenMovementThreshold = 0.5f;
-    private float rightLimit = 10f;
-    private float leftLimit = -10f;
-    private Vector3 movement = new Vector3(4, 0, 0);
+    private float rightLimit = 4f;
+    private float leftLimit = -4f;
+    private Vector3 movement = new Vector3(3, 0, 0);
 
     
     private void Awake() {
@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 targetPosition = initialPosition - movement;
 
         // Interpolate the position over the duration of the animation
-        float duration = turnRightAnimationClip.length /( animator.speed * 5);
+        float duration = turnRightAnimationClip.length /( animator.speed * 3);
         float elapsedTime = 0;
 
         while (elapsedTime < duration)
@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 targetPosition = initialPosition + movement;
 
         // Interpolate the position over the duration of the animation
-        float duration = turnLeftAnimationClip.length / ( animator.speed * 5);
+        float duration = turnLeftAnimationClip.length / ( animator.speed * 3);
         float elapsedTime = 0;
 
         while (elapsedTime < duration)
