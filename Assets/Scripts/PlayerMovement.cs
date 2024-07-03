@@ -1,10 +1,10 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //[SerializeField] private float moveSpeed = 20f;
     [Header("Animation")]
     [SerializeField] private Animator animator;
     [SerializeField] private AnimationClip turnRightAnimationClip;
@@ -12,19 +12,21 @@ public class PlayerMovement : MonoBehaviour
     private int turnRightAnimationId;
     private int turnLeftAnimationId;
 
-
+    [Header("Score Management")]
     [SerializeField] TextMeshProUGUI scoreText;
     private float score = 0;
 
 
+    [SerializeField] private float moveSpeed = 20f;
     private Vector3 startPosition;
     private Vector3 endPosition;
     private float suddenMovementThreshold = 0.5f;
     private float rightLimit = 4f;
     private float leftLimit = -4f;
     private Vector3 movement = new Vector3(3, 0, 0);
+    private bool isMoving = false;
 
-    
+
     private void Awake() {
         turnRightAnimationId = Animator.StringToHash("TurnRight");
         turnLeftAnimationId = Animator.StringToHash("TurnLeft");
@@ -36,6 +38,23 @@ public class PlayerMovement : MonoBehaviour
     void Update() {
         score += Time.deltaTime;
         scoreText.text =  Mathf.RoundToInt(score).ToString();
+        
+        Vector3 position = transform.position;
+        if (position.y < 8 && isMoving){   
+            position.y = position.y + moveSpeed * Time.deltaTime;
+            transform.position = position;
+        }
+        if (position.y > 8) {
+            isMoving = false;
+        } else if (position.y < 2) {
+            isMoving = true;
+        }
+        
+        if (!isMoving) {
+            position.y = position.y - moveSpeed * Time.deltaTime;
+            transform.position = position;
+        }
+
         SuddenMovement();
     }
 
