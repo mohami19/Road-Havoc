@@ -24,8 +24,6 @@ public class PlayerMovement : MonoBehaviour
     private float rightLimit = 4f;
     private float leftLimit = -4f;
     private Vector3 movement = new Vector3(3, 0, 0);
-    private bool isMoving = false;
-
 
     private void Awake() {
         turnRightAnimationId = Animator.StringToHash("TurnRight");
