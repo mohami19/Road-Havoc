@@ -38,24 +38,8 @@ public class PlayerMovement : MonoBehaviour
     void Update() {
         score += Time.deltaTime;
         scoreText.text =  Mathf.RoundToInt(score).ToString();
-        
-        Vector3 position = transform.position;
-        if (position.y < 8 && isMoving){   
-            position.y = position.y + moveSpeed * Time.deltaTime;
-            transform.position = position;
-        }
-        if (position.y > 8) {
-            isMoving = false;
-        } else if (position.y < 2) {
-            isMoving = true;
-        }
-        
-        if (!isMoving) {
-            position.y = position.y - moveSpeed * Time.deltaTime;
-            transform.position = position;
-        }
 
-        SuddenMovement();
+        MovementWitHoldInputSystem();
     }
 
     private void SuddenMovement()
@@ -77,6 +61,25 @@ public class PlayerMovement : MonoBehaviour
                     StartCoroutine(TurnRight()); 
                 }
             }
+        }
+    }
+
+    private void MovementWitHoldInputSystem() {
+        for (int i = 0; i < Input.touchCount; i++) {
+            Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.touches[i].position);
+            touchPosition.z = 0;
+
+            Vector3 direction = (touchPosition - transform.position).normalized;
+
+            float distance = Vector3.Distance(touchPosition, transform.position);
+            Vector3 movement = direction * moveSpeed * Time.deltaTime;
+            
+            // Ensure the object doesn't overshoot the touch position
+            if (movement.magnitude > distance) {
+                movement = direction * distance ;
+            }
+            movement.y = 0;
+            transform.position += movement;
         }
     }
 
