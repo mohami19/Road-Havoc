@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private float rightLimit = 4f;
     private float leftLimit = -4f;
     private Vector3 movement = new Vector3(3, 0, 0);
+    private float multiplier = 0.5f;
 
     private void Awake() {
         turnRightAnimationId = Animator.StringToHash("TurnRight");
@@ -33,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        score += Time.deltaTime;
+        score += Time.deltaTime * multiplier;
         scoreText.text =  Mathf.RoundToInt(score).ToString();
 
         MovementWitHoldInputSystem();
@@ -45,11 +46,9 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.touches[i].phase == TouchPhase.Began) {
                 startPosition = Camera.main.ScreenToWorldPoint(Input.touches[i].position);
-                Debug.Log("Start Position is : " + startPosition);
             }
             if (Input.touches[i].phase == TouchPhase.Ended) {
                 endPosition = Camera.main.ScreenToWorldPoint(Input.touches[i].position);
-                Debug.Log("End Position is : " + endPosition);
                 Vector2 distance = endPosition - startPosition;
                 if (distance.x > suddenMovementThreshold && transform.position.x + 2 < rightLimit) {
                     StartCoroutine(TurnLeft()); 
@@ -63,6 +62,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovementWitHoldInputSystem() {
         for (int i = 0; i < Input.touchCount; i++) {
+            
+            FindAnyObjectByType<roadMove>().GetComponent<roadMove>().Speed = 0.5f;
+            multiplier = 2;
+
             Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.touches[i].position);
             touchPosition.z = 0;
 
@@ -77,6 +80,11 @@ public class PlayerMovement : MonoBehaviour
             }
             movement.y = 0;
             transform.position += movement;
+            
+            if (Input.touches[i].phase == TouchPhase.Ended) {
+                FindAnyObjectByType<roadMove>().GetComponent<roadMove>().Speed = 0.1f;
+                multiplier = 0.5f;
+            }
         }
     }
 
