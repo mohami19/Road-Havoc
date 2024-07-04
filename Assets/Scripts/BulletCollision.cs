@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class BulletCollision : MonoBehaviour
 {
+    private int health = 5;
     [SerializeField] private ParticleSystem hitEffect;
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Obstacle"){
+        if (other.tag == "Bullet" && health <= 0){
             //hitEffect.Play();
-            other.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+        } else {
+            health -= 1;
         }
     }
         

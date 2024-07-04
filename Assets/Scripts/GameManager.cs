@@ -27,9 +27,15 @@ public class GameManager : MonoBehaviour
         
         if (timer > timeBetweenSpawns) {
             timer = 0;
+            RandomSpawn();
+            Invoke("RandomSpawn()",0.05f);
+            Invoke("RandomSpawn()",0.1f);
+        }
+    }
+
+    void RandomSpawn(){
             int randPoint = Random.Range(0,spawnPoints.Length);
             int randObstacle = Random.Range(0,obstacles.Length);
             Instantiate(obstacles[randObstacle],spawnPoints[randPoint].transform.position,Quaternion.identity);
-        }
     }
 }
