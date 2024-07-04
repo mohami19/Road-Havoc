@@ -683,6 +683,11 @@ MonoBehaviour:
   bullet: {fileID: 756163802603293820, guid: b4851f70691ea3e4e8969ebf6127314f, type: 3}
   fireSpeed: 0
   fireButton: {fileID: 1823204503}
+  timer: 0
+  timeBetweenSpawns: 0.3
+  straightDirection: 90
+  rightDiagonalDirection: 75
+  leftDiagonalDirection: 105
 --- !u!1 &863805117
 GameObject:
   m_ObjectHideFlags: 0
