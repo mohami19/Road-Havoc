@@ -1,8 +1,9 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerManage : MonoBehaviour
 {
     [Header("Animation")]
     [SerializeField] private Animator animator;
@@ -24,6 +25,27 @@ public class PlayerMovement : MonoBehaviour
     private float leftLimit = -4f;
     private Vector3 movement = new Vector3(3, 0, 0);
 
+    [Header("Health")]
+    private int maxHealth = 5;
+    private int _health;
+    [SerializeField] Slider progressBar; 
+
+
+    public int Health
+    {
+        get { return _health; }
+        set 
+        { 
+            _health = value; 
+        }
+    }
+    void Start()
+    {
+        _health = maxHealth;
+        progressBar.maxValue = maxHealth;
+        progressBar.value = 0;
+    }
+
     private void Awake() {
         turnRightAnimationId = Animator.StringToHash("TurnRight");
         turnLeftAnimationId = Animator.StringToHash("TurnLeft");
@@ -33,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        progressBar.value = _health;
+
         score += Time.deltaTime * Time.timeScale * 2;
         scoreText.text =  Mathf.RoundToInt(score).ToString();
 
@@ -60,27 +84,27 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void MovementWitHoldInputSystem() {
-        for (int i = 0; i < Input.touchCount; i++) {
+        //for (int i = 0; i < Input.touchCount; i++) {
             
-            Time.timeScale = 1f;
-            Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.touches[i].position);
-            touchPosition.z = 0;
+        Time.timeScale = 1f;
+        Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.touches[0].position);
+        touchPosition.z = 0;
 
-            Vector3 direction = (touchPosition - transform.position).normalized;
+        Vector3 direction = (touchPosition - transform.position).normalized;
 
-            float distance = Vector3.Distance(touchPosition, transform.position);
-            Vector3 movement = direction * moveSpeed * Time.deltaTime;
-            
-            if (movement.magnitude > distance) {
-                movement = direction * distance ;
-            }
-            movement.y = 0;
-            transform.position += movement;
-            
-            if (Input.touches[i].phase == TouchPhase.Ended) {
-                Time.timeScale = 0.15f;
-            }
+        float distance = Vector3.Distance(touchPosition, transform.position);
+        Vector3 movement = direction * moveSpeed * Time.deltaTime;
+        
+        if (movement.magnitude > distance) {
+            movement = direction * distance ;
         }
+        movement.y = 0;
+        transform.position += movement;
+        
+        if (Input.touches[0].phase == TouchPhase.Ended) {
+            Time.timeScale = 0.15f;
+        }
+        //}
     }
 
     private IEnumerator TurnRight(){

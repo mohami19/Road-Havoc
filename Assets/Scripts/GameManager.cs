@@ -34,8 +34,8 @@ public class GameManager : MonoBehaviour
         if (timer > timeBetweenSpawns) {
             timer = 0;
             RandomSpawn();
-            Invoke("RandomSpawn()",0.05f);
-            Invoke("RandomSpawn()",0.1f);
+            //Invoke("RandomSpawn",0.05f);
+            //Invoke("RandomSpawn",0.1f);
         }
     }
 
