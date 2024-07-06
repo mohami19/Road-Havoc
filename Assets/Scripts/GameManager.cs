@@ -34,8 +34,8 @@ public class GameManager : MonoBehaviour
     }
 
     void RandomSpawn(){
-            int randPoint = Random.Range(0,spawnPoints.Length);
-            int randObstacle = Random.Range(0,obstacles.Length);
-            Instantiate(obstacles[randObstacle],spawnPoints[randPoint].transform.position,Quaternion.identity);
+        int randPoint = Random.Range(0,spawnPoints.Length);
+        int randObstacle = Random.Range(0,obstacles.Length);
+        Instantiate(obstacles[randObstacle],spawnPoints[randPoint].transform.position,Quaternion.Euler(0,0,180));
     }
 }

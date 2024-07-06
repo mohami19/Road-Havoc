@@ -33,7 +33,7 @@ public class PlayerFire : MonoBehaviour
         Vector3 spawnPosition = transform.position + new Vector3(0,1,0);
         Vector2 direction = new Vector2(Mathf.Cos(degree * Mathf.Deg2Rad), Mathf.Sin(degree * Mathf.Deg2Rad));        
         
-        GameObject newBullet = Instantiate(bullet, spawnPosition, Quaternion.identity);
+        GameObject newBullet = Instantiate(bullet, spawnPosition, Quaternion.Euler(0,0,90));
         
         BulletManagement bulletManagement = newBullet.GetComponent<BulletManagement>();
         bulletManagement.Direction = direction;

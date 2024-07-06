@@ -680,14 +680,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f868922fa5c34842829912d0dd193e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 756163802603293820, guid: b4851f70691ea3e4e8969ebf6127314f, type: 3}
+  bullet: {fileID: 3788025276769663731, guid: f6ebbe6752bd0476386d05d1aee3a9c1, type: 3}
   fireSpeed: 0
   fireButton: {fileID: 1823204503}
   timer: 0
   timeBetweenSpawns: 0.3
-  straightDirection: 90
-  rightDiagonalDirection: 75
-  leftDiagonalDirection: 105
 --- !u!1 &863805117
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,7 +732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73597a893e5abe47a56817bf48070f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  _speed: 0
 --- !u!64 &863805121
 MeshCollider:
   m_ObjectHideFlags: 0
