@@ -16,7 +16,7 @@ public class ObstacleMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float speedMultiplier = gm.GetComponent<GameManager>().GetSpeedMultiplier();
+        float speedMultiplier = gm.GetComponent<GameManager>().SpeedMultiplier;
         rd.velocity = Vector2.down * (moveSpeed + speedMultiplier);
         DestroyObject();
         //rigidbody.velocity = Vector2.left * moveSpeed * Time.deltaTime;

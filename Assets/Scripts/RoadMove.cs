@@ -17,7 +17,7 @@ public class roadMove : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        _speed = 0.1f;
+        Time.timeScale = 0.15f;
     }
 
     // Update is called once per frame

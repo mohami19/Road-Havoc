@@ -25,7 +25,7 @@ public class BulletManagement : MonoBehaviour
 
     void Update()
     {
-        float speedMultiplier = gm.GetComponent<GameManager>().GetSpeedMultiplier();
+        float speedMultiplier = gm.GetComponent<GameManager>().SpeedMultiplier;
         rd.velocity = Direction * (moveSpeed + speedMultiplier);
         DestroyObject();
     }

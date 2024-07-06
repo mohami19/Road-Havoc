@@ -23,13 +23,11 @@ public class PlayerMovement : MonoBehaviour
     private float rightLimit = 4f;
     private float leftLimit = -4f;
     private Vector3 movement = new Vector3(3, 0, 0);
-    private float multiplier = 0.5f;
 
     private void Awake() {
         turnRightAnimationId = Animator.StringToHash("TurnRight");
         turnLeftAnimationId = Animator.StringToHash("TurnLeft");
         animator.speed = animator.speed * 2.5f;
-        Time.timeScale = 0.15f;
     }
 
 
@@ -64,7 +62,6 @@ public class PlayerMovement : MonoBehaviour
     private void MovementWitHoldInputSystem() {
         for (int i = 0; i < Input.touchCount; i++) {
             
-            // FindAnyObjectByType<roadMove>().GetComponent<roadMove>().Speed = 0.5f;
             Time.timeScale = 1f;
             Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.touches[i].position);
             touchPosition.z = 0;
@@ -74,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
             float distance = Vector3.Distance(touchPosition, transform.position);
             Vector3 movement = direction * moveSpeed * Time.deltaTime;
             
-            // Ensure the object doesn't overshoot the touch position
             if (movement.magnitude > distance) {
                 movement = direction * distance ;
             }
@@ -82,7 +78,6 @@ public class PlayerMovement : MonoBehaviour
             transform.position += movement;
             
             if (Input.touches[i].phase == TouchPhase.Ended) {
-                // FindAnyObjectByType<roadMove>().GetComponent<roadMove>().Speed = 0.1f;
                 Time.timeScale = 0.15f;
             }
         }

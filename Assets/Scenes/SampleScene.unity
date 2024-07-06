@@ -684,7 +684,7 @@ MonoBehaviour:
   fireSpeed: 0
   fireButton: {fileID: 1823204503}
   timer: 0
-  timeBetweenSpawns: 0.3
+  timeBetweenSpawns: 1
 --- !u!1 &863805117
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,7 +732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73597a893e5abe47a56817bf48070f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0
+  _speed: 0.5
 --- !u!64 &863805121
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -978,7 +978,7 @@ MonoBehaviour:
   - {fileID: 8446712759301585155, guid: 0f7b59e21b23b65429729be7fadc4977, type: 3}
   timer: 0
   timeBetweenSpawns: 1
-  speedMultiplier: 30
+  _speedMultiplier: 3
 --- !u!4 &1140405584
 Transform:
   m_ObjectHideFlags: 0
