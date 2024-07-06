@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class BulletCollision : MonoBehaviour
 {
-    private int health = 4;
+    private int obstacleHealth;
     [SerializeField] private ParticleSystem hitEffect;
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Bullet" && health <= 0){
+        obstacleHealth = gameObject.GetComponent<ObstacleHealthBarController>().Health;
+        if (other.tag == "Bullet" && obstacleHealth <= 1){
             //hitEffect.Play();
             gameObject.SetActive(false);
         } else {
-            health -= 1;
+            gameObject.GetComponent<ObstacleHealthBarController>().Health -= 1;
         }
     }
 

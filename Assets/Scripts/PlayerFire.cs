@@ -9,8 +9,8 @@ public class PlayerFire : MonoBehaviour
     [SerializeField] private float timer = 0.8f;
     [SerializeField] private float timeBetweenSpawns = 1f;
     private float straightDirection = 90;
-    private float rightDiagonalDirection = 75;
-    private float leftDiagonalDirection = 105;
+    private float rightDiagonalDirection = 85;
+    private float leftDiagonalDirection = 95;
 
     void Update() {
         Fire();
