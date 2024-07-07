@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _speedMultiplier += Time.deltaTime * 0.4f;
+        _speedMultiplier += Time.deltaTime * 0.2f;
 
         timer += Time.deltaTime;
         

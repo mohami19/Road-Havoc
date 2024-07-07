@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class ObstacleHealthBarController : MonoBehaviour
 {
-    private int maxHealth = 4;
+    private int maxHealth = 3;
     private int _health;
     [SerializeField] Slider progressBar; 
 
@@ -27,6 +27,5 @@ public class ObstacleHealthBarController : MonoBehaviour
     void Update()
     {
         progressBar.value = _health;
-        
     }
 }

@@ -3,27 +3,41 @@ using UnityEngine.SceneManagement;
 
 public class BulletCollision : MonoBehaviour
 {
-    private int obstacleHealth;
     [SerializeField] private ParticleSystem hitEffect;
-    private float destroyPlyerDelay = 0.1f;
+    [SerializeField] private Canvas canvas;
+    private float destroyObstacleDelay = 0.6f;
+    private int obstacleHealth;
+
+    private void Update() {
+        obstacleHealth = gameObject.GetComponent<ObstacleHealthBarController>().Health;
+        
+    }
 
     private void OnTriggerEnter2D(Collider2D other) {
         obstacleHealth = gameObject.GetComponent<ObstacleHealthBarController>().Health;
-        if (other.tag == "Bullet" && obstacleHealth <= 1){
-            hitEffect.Play();
-            Invoke("DestroyPlayer",destroyPlyerDelay);
-        } else {
+        if (other.tag == "Bullet"){
             gameObject.GetComponent<ObstacleHealthBarController>().Health -= 1;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         if (other.tag == "Bullet"){
+            if (obstacleHealth <= 1 ){
+                DestroyEnemy();
+            }
             other.gameObject.SetActive(false);
         }
     }
     
-    void DestroyPlayer(){
+    void DestroyEnemy(){
+        hitEffect.Play();
+        canvas.enabled = false;
+        gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        Invoke("DestroyObstacle",destroyObstacleDelay);
+    }
+
+    void DestroyObstacle(){
         gameObject.SetActive(false);
     }
         

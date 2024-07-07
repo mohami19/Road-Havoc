@@ -3,7 +3,7 @@ using UnityEngine;
 public class BulletManagement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 2f;
-    private float distanceToLive = 30f;
+    private float distanceToLive = 25f;
     private GameManager gm;
     private Rigidbody2D rd;
     private Vector2 _direction;
