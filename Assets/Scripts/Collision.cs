@@ -40,8 +40,10 @@ public class Collision : MonoBehaviour
             playerHealth -= 1;
             gotHit = false;
             Invoke("GotHit",sparklingEffect);
+            hitEffect.Play();
             other.gameObject.SetActive(false);
         } else if (other.tag == "Obstacle") {
+            hitEffect.Play();
             other.gameObject.SetActive(false);
         }
         gameObject.GetComponent<PlayerManage>().Health = playerHealth;
