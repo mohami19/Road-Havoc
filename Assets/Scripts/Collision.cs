@@ -6,27 +6,53 @@ public class Collision : MonoBehaviour
 {
     [SerializeField] private float destroyPlyerDelay = 0.6f;
     [SerializeField] private ParticleSystem hitEffect;
+
+
+    [SerializeField] private float alphaChangeSpeed = 2f;
     private bool gotHit = true;
-    private int obstacleHealth;
+    private int playerHealth;
+    private SpriteRenderer spriteRenderer;
+    private float alphaTimer;
+
+    private void Start() {
+        playerHealth = gameObject.GetComponent<PlayerManage>().Health;
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        alphaTimer = 0f;
+    }
+
+    private void Update() {
+        if (playerHealth < 1) {
+            hitEffect.Play();
+            Invoke("DestroyPlayer",destroyPlyerDelay);
+        }
+        if (!gotHit)
+        {
+            alphaTimer += Time.deltaTime * alphaChangeSpeed;
+            Color tmp = spriteRenderer.color;
+            tmp.a = 0.65f + 0.35f * Mathf.Sin(alphaTimer);
+            spriteRenderer.color = tmp;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other) {
-        obstacleHealth = gameObject.GetComponent<PlayerManage>().Health;
-        Debug.Log(gotHit);
+        playerHealth = gameObject.GetComponent<PlayerManage>().Health;
         if (other.tag == "Obstacle" && gotHit){
-            gameObject.GetComponent<PlayerManage>().Health -= 1;
+            playerHealth -= 1;
             gotHit = false;
             Invoke("GotHit",3f);
             other.gameObject.SetActive(false);
         } else if (other.tag == "Obstacle") {
             other.gameObject.SetActive(false);
         }
-        if(obstacleHealth <= 0){
-            hitEffect.Play();
-            Invoke("DestroyPlayer",destroyPlyerDelay);
-        }
+        gameObject.GetComponent<PlayerManage>().Health = playerHealth;
     }
 
-    void GotHit(){
+    void GotHit() {
         gotHit = true;
+        Color tmp = spriteRenderer.color;
+        tmp.a = 1f;
+        spriteRenderer.color = tmp;
+        alphaTimer = 0f;
     }
 
     void DestroyPlayer(){

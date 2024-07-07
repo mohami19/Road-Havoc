@@ -98,27 +98,26 @@ public class PlayerManage : MonoBehaviour
     }
 
     private void MovementWitHoldInputSystem() {
-        //for (int i = 0; i < Input.touchCount; i++) {
+        for (int i = 0; i < Input.touchCount; i++) {
+            Time.timeScale = 1f;
+            Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.touches[0].position);
+            touchPosition.z = 0;
+
+            Vector3 direction = (touchPosition - transform.position).normalized;
+
+            float distance = Vector3.Distance(touchPosition, transform.position);
+            Vector3 movement = direction * moveSpeed * Time.deltaTime;
             
-        Time.timeScale = 1f;
-        Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.touches[0].position);
-        touchPosition.z = 0;
-
-        Vector3 direction = (touchPosition - transform.position).normalized;
-
-        float distance = Vector3.Distance(touchPosition, transform.position);
-        Vector3 movement = direction * moveSpeed * Time.deltaTime;
-        
-        if (movement.magnitude > distance) {
-            movement = direction * distance ;
+            if (movement.magnitude > distance) {
+                movement = direction * distance ;
+            }
+            movement.y = 0;
+            transform.position += movement;
+            
+            if (Input.touches[0].phase == TouchPhase.Ended) {
+                Time.timeScale = 0.15f;
+            }
         }
-        movement.y = 0;
-        transform.position += movement;
-        
-        if (Input.touches[0].phase == TouchPhase.Ended) {
-            Time.timeScale = 0.15f;
-        }
-        //}
     }
 
     private IEnumerator TurnRight(){

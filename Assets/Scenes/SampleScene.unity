@@ -700,6 +700,7 @@ MonoBehaviour:
   turnLeftAnimationClip: {fileID: 7400000, guid: a7b4af40a01b15344a16e695d3f9c8e9, type: 2}
   scoreText: {fileID: 170277780}
   moveSpeed: 40
+  playerInvulnerability: 3
   progressBar: {fileID: 298837395}
 --- !u!95 &551599600
 Animator:
@@ -736,6 +737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyPlyerDelay: 0.6
   hitEffect: {fileID: 1545938294}
+  alphaChangeSpeed: 10
 --- !u!70 &551599602
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1179,8 +1181,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -2}
-  m_SizeDelta: {x: 2, y: 0.3}
+  m_AnchoredPosition: {x: 0, y: 2.2}
+  m_SizeDelta: {x: 2.5, y: 0.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1120167947
 Canvas:
