@@ -25,8 +25,6 @@ public class PlayerManage : MonoBehaviour
     private float leftLimit = -4f;
     private Vector3 movement = new Vector3(3, 0, 0);
 
-    [SerializeField] private float playerInvulnerability = 3f;
-    private CapsuleCollider2D capsuleCollider2D;
 
     [Header("Health")]
     private int maxHealth = 5;
@@ -47,7 +45,6 @@ public class PlayerManage : MonoBehaviour
         _health = maxHealth;
         progressBar.maxValue = maxHealth;
         progressBar.value = 0;
-        capsuleCollider2D = gameObject.GetComponent<CapsuleCollider2D>();
     }
 
     private void Awake() {
@@ -60,11 +57,6 @@ public class PlayerManage : MonoBehaviour
     // Update is called once per frame
     void Update() {
 
-        // if (!capsuleCollider2D.enabled) {
-        //     Debug.Log("being called");
-        //     Invoke("ColliderActive",playerInvulnerability);
-        // }
-
         progressBar.value = _health;
 
         score += Time.deltaTime * Time.timeScale * 2;
@@ -72,10 +64,6 @@ public class PlayerManage : MonoBehaviour
 
         MovementWitHoldInputSystem();
     }
-
-    // private void ColliderActive(){
-    //     capsuleCollider2D.enabled = true;
-    // }
 
     private void SuddenMovement()
     {

@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class Collision : MonoBehaviour
 {
     [SerializeField] private float destroyPlyerDelay = 0.6f;
     [SerializeField] private ParticleSystem hitEffect;
 
+    private float sparklingEffect = 4f;
 
     [SerializeField] private float alphaChangeSpeed = 2f;
     private bool gotHit = true;
@@ -39,7 +39,7 @@ public class Collision : MonoBehaviour
         if (other.tag == "Obstacle" && gotHit){
             playerHealth -= 1;
             gotHit = false;
-            Invoke("GotHit",3f);
+            Invoke("GotHit",sparklingEffect);
             other.gameObject.SetActive(false);
         } else if (other.tag == "Obstacle") {
             other.gameObject.SetActive(false);

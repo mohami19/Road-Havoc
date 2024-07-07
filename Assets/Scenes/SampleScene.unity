@@ -700,7 +700,6 @@ MonoBehaviour:
   turnLeftAnimationClip: {fileID: 7400000, guid: a7b4af40a01b15344a16e695d3f9c8e9, type: 2}
   scoreText: {fileID: 170277780}
   moveSpeed: 40
-  playerInvulnerability: 3
   progressBar: {fileID: 298837395}
 --- !u!95 &551599600
 Animator:

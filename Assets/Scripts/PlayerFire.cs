@@ -13,7 +13,7 @@ public class PlayerFire : MonoBehaviour
     private float leftDiagonalDirection = 95;
 
     void Update() {
-        //Fire();
+        Fire();
     }
     public void Fire(){
         for (int i = 0; i < Input.touchCount; i++){
