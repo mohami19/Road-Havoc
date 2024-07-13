@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PlayerManage : MonoBehaviour
@@ -14,8 +15,16 @@ public class PlayerManage : MonoBehaviour
 
     [Header("Score Management")]
     [SerializeField] TextMeshProUGUI scoreText;
-    private float score = 0;
+    private float _score = 0;
 
+    public float Score
+    {
+        get { return _score; }
+        set 
+        { 
+            _score = value; 
+        }
+    }
 
     [SerializeField] private float moveSpeed = 20f;
     private Vector3 startPosition;
@@ -59,8 +68,8 @@ public class PlayerManage : MonoBehaviour
 
         progressBar.value = _health;
 
-        score += Time.deltaTime * Time.timeScale * 2;
-        scoreText.text =  Mathf.RoundToInt(score).ToString();
+        _score += Time.deltaTime * Time.timeScale * 2;
+        scoreText.text =  Mathf.RoundToInt(_score).ToString();
 
         MovementWitHoldInputSystem();
     }
