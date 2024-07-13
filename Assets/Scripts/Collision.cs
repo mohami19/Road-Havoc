@@ -38,6 +38,7 @@ public class Collision : MonoBehaviour
         playerHealth = gameObject.GetComponent<PlayerManage>().Health;
         if (other.tag == "Obstacle" && gotHit){
             playerHealth -= 1;
+            Handheld.Vibrate();
             gotHit = false;
             Invoke("GotHit",sparklingEffect);
             hitEffect.Play();
