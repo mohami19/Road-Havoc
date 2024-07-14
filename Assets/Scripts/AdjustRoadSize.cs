@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AdjustRoadSize : MonoBehaviour
 {
-    public Transform roadTransform;
+    private Transform roadTransform;
 
     void Start()
     {
