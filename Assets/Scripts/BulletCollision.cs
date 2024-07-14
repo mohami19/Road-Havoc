@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class BulletCollision : MonoBehaviour
 {
     [SerializeField] private ParticleSystem hitEffect;
-    [SerializeField] private Canvas canvas;
+    //[SerializeField] private Canvas canvas;
     private float destroyObstacleDelay = 0.6f;
     private int obstacleHealth;
 
@@ -26,7 +26,7 @@ public class BulletCollision : MonoBehaviour
     
     void DestroyEnemy(){
         hitEffect.Play();
-        canvas.enabled = false;
+        //canvas.enabled = false;
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         Invoke("DestroyObstacle",destroyObstacleDelay);

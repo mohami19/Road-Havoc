@@ -5,7 +5,7 @@ public class ObstacleHealthBarController : MonoBehaviour
 {
     private int maxHealth = 2;
     private int _health;
-    [SerializeField] Slider progressBar; 
+    //[SerializeField] Slider progressBar; 
 
 
     public int Health
@@ -19,13 +19,13 @@ public class ObstacleHealthBarController : MonoBehaviour
     void Start()
     {
         _health = maxHealth;
-        progressBar.maxValue = maxHealth;
-        progressBar.value = maxHealth;
+        /*progressBar.maxValue = maxHealth;
+        progressBar.value = maxHealth;*/
     }
 
     // Update is called once per frame
     void Update()
     {
-        progressBar.value = _health;
+        //progressBar.value = _health;
     }
 }
