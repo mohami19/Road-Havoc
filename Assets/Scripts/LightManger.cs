@@ -15,8 +15,7 @@ public class LightManger : MonoBehaviour
         leftLight.intensity = 0;
     } 
     private void Update() {
-        speedMultiplier += Time.deltaTime * 0.0000005f;
-        Debug.Log(GameLight.intensity);
+        speedMultiplier += Time.deltaTime * 0.0000009f;
         if (GameLight.intensity > minGameLight && rightLight.intensity <= maxCarLight){
             GameLight.intensity -= speedMultiplier;
             leftLight.intensity += speedMultiplier * 2;

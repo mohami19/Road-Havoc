@@ -17,11 +17,6 @@ public class BulletCollision : MonoBehaviour
         obstacleHealth = gameObject.GetComponent<ObstacleHealthBarController>().Health;
         if (other.tag == "Bullet"){
             gameObject.GetComponent<ObstacleHealthBarController>().Health -= 1;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other) {
-        if (other.tag == "Bullet"){
             if (obstacleHealth <= 1 ){
                 DestroyEnemy();
             }

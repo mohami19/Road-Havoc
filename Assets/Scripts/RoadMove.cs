@@ -4,6 +4,7 @@ public class roadMove : MonoBehaviour
 {
     [SerializeField] private float _speed;
     private Vector2 offset;
+    private float speedMultiplier = 0.2f;
 
     public float Speed
     {
@@ -23,7 +24,7 @@ public class roadMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        offset = new Vector2(0, Time.time * _speed);
+        offset = new Vector2(0, Time.time * (_speed + speedMultiplier));
         GetComponent<Renderer> ().material.mainTextureOffset = offset;
     }
 }

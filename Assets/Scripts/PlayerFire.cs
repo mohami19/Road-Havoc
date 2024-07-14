@@ -22,8 +22,8 @@ public class PlayerFire : MonoBehaviour
                 if (timer > timeBetweenSpawns) {
                     timer = 0;
                     SpawnBullet(straightDirection);
-                    SpawnBullet(rightDiagonalDirection);
-                    SpawnBullet(leftDiagonalDirection);
+                    //SpawnBullet(rightDiagonalDirection);
+                    //SpawnBullet(leftDiagonalDirection);
                 }
             }
         }

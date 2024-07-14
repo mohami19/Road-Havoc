@@ -23,7 +23,8 @@ public class Collision : MonoBehaviour
     private void Update() {
         if (playerHealth < 1) {
             hitEffect.Play();
-            Invoke("DestroyPlayer",destroyPlyerDelay);
+            gameObject.SetActive(false);
+            //Invoke("DestroyPlayer",destroyPlyerDelay);
         }
         if (!gotHit)
         {
@@ -60,6 +61,6 @@ public class Collision : MonoBehaviour
 
     void DestroyPlayer(){
         gameObject.SetActive(false);
-        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
     }
 }
