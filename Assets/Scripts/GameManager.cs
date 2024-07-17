@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] obstacles;
     [SerializeField] private float timer;
     [SerializeField] private float timeBetweenSpawns = 5f;
-    [SerializeField] private float _speedMultiplier = 3f;
+    [SerializeField] private float _speedMultiplier = 2f;
 
 
     public float SpeedMultiplier

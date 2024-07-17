@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 5403328856463323308}
-  canvas: {fileID: 0}
+  gemPrize: {fileID: 7833632691891569654, guid: e3f066e6ece63b148b71b9b13581bdc0, type: 3}
 --- !u!114 &6024736209110294310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722873c3c719ffd4ab456916fc22c657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBar: {fileID: 0}
 --- !u!1001 &5403328856481541994
 PrefabInstance:
   m_ObjectHideFlags: 0

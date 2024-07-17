@@ -788,7 +788,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: ec3f2c43c25c6ad4aa5157391207b7b1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.51715845, g: 0.6981132, b: 0.50448555, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -807,7 +807,7 @@ Transform:
   m_GameObject: {fileID: 551599595}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -949,7 +949,7 @@ MonoBehaviour:
   fireSpeed: 0
   fireButton: {fileID: 1823204503}
   timer: 0
-  timeBetweenSpawns: 0.45
+  timeBetweenSpawns: 0.6
 --- !u!114 &551599605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1556,7 +1556,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff87ac8161a37e04f900ddc161a47630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadTransform: {fileID: 0}
 --- !u!1 &877266570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1958,7 +1957,7 @@ MonoBehaviour:
   - {fileID: 8446712759301585155, guid: 0f7b59e21b23b65429729be7fadc4977, type: 3}
   timer: 0
   timeBetweenSpawns: 1
-  _speedMultiplier: 3
+  _speedMultiplier: 2
 --- !u!4 &1140405584
 Transform:
   m_ObjectHideFlags: 0
@@ -1990,7 +1989,7 @@ MonoBehaviour:
   leftLight: {fileID: 1066114337}
   gameLight: {fileID: 1733690756}
   sun: {fileID: 1119356976}
-  timer: 0.8
+  timer: 0.5
 --- !u!1 &1160226463
 GameObject:
   m_ObjectHideFlags: 0
