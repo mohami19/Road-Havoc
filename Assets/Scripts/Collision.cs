@@ -1,13 +1,11 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Collision : MonoBehaviour
 {
     [SerializeField] private float destroyPlyerDelay = 0.6f;
     [SerializeField] private ParticleSystem hitEffect;
-
     private float sparklingEffect = 4f;
-
     [SerializeField] private float alphaChangeSpeed = 2f;
     private bool gotHit = true;
     private int playerHealth;
@@ -36,6 +34,14 @@ public class Collision : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Award")) {
+            string score = Mathf.RoundToInt(GetComponent<PlayerManage>().Score).ToString();
+            Debug.Log("Before : " + GetComponent<PlayerManage>().Score);
+            if (int.TryParse(score, out int scoreInt)) {
+                GetComponent<PlayerManage>().Score = scoreInt +2;
+            }
+            Debug.Log("After : " + GetComponent<PlayerManage>().Score);
+        }
         playerHealth = gameObject.GetComponent<PlayerManage>().Health;
         if (other.tag == "Obstacle" && gotHit){
             playerHealth -= 1;
