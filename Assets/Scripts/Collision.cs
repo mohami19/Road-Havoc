@@ -36,11 +36,10 @@ public class Collision : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Award")) {
             string score = Mathf.RoundToInt(GetComponent<PlayerManage>().Score).ToString();
-            Debug.Log("Before : " + GetComponent<PlayerManage>().Score);
             if (int.TryParse(score, out int scoreInt)) {
                 GetComponent<PlayerManage>().Score = scoreInt +2;
             }
-            Debug.Log("After : " + GetComponent<PlayerManage>().Score);
+            other.gameObject.SetActive(false);
         }
         playerHealth = gameObject.GetComponent<PlayerManage>().Health;
         if (other.tag == "Obstacle" && gotHit){
