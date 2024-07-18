@@ -979,7 +979,7 @@ MonoBehaviour:
         m_CallState: 2
   gameOverCanvas: {fileID: 1160226466}
   gameCanvas: {fileID: 1096287032}
-  score: {fileID: 633807802}
+  score: {fileID: 170277780}
 --- !u!1 &615624712
 GameObject:
   m_ObjectHideFlags: 0
