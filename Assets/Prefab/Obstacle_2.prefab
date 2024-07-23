@@ -178,7 +178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 3552793729605652693}
-  gemPrize: {fileID: 7833632691891569654, guid: e3f066e6ece63b148b71b9b13581bdc0, type: 3}
+  awards:
+  - {fileID: 7833632691891569654, guid: e3f066e6ece63b148b71b9b13581bdc0, type: 3}
 --- !u!114 &1469129864659587502
 MonoBehaviour:
   m_ObjectHideFlags: 0
