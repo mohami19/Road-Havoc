@@ -11,8 +11,6 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI leaderBoardNames;
     [SerializeField] private TextMeshProUGUI leaderBoardScore;
 
-    // Start is called before the first frame update
-
     private const string scheme = "http";
     private const string host = "62.106.95.170";
     private const int port = 7350;
