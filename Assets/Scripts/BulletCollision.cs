@@ -7,7 +7,7 @@ public class BulletCollision : MonoBehaviour
     //[SerializeField] private Canvas canvas;
     private float destroyObstacleDelay = 0.6f;
     private int obstacleHealth;
-    [SerializeField] private GameObject gemPrize;
+    [SerializeField] private GameObject[] awards;
 
     private void Update() {
         obstacleHealth = gameObject.GetComponent<ObstacleHealthBarController>().Health;
@@ -29,7 +29,7 @@ public class BulletCollision : MonoBehaviour
         hitEffect.Play();
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        Instantiate(gemPrize,transform.position,Quaternion.identity);
+        Instantiate(awards[Random.Range(0,awards.Length)],transform.position,Quaternion.identity);
         Invoke(nameof(DestroyObstacle), destroyObstacleDelay);
     }
 

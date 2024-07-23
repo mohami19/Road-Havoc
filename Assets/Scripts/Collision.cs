@@ -3,11 +3,16 @@ using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
+    [SerializeField] Canvas gameOverCanvas;
+    [SerializeField] Canvas gameCanvas;
     [SerializeField] private float destroyPlyerDelay = 0.6f;
+    
+    [Header("Hit Effect")]
     [SerializeField] private ParticleSystem hitEffect;
-    private float sparklingEffect = 4f;
+    [SerializeField] private float sparklingEffectTime = 4f;
     [SerializeField] private float alphaChangeSpeed = 2f;
     private bool gotHit = true;
+    
     private int playerHealth;
     private SpriteRenderer spriteRenderer;
     private float alphaTimer;
@@ -21,8 +26,7 @@ public class Collision : MonoBehaviour
     private void Update() {
         if (playerHealth < 1) {
             hitEffect.Play();
-            gameObject.SetActive(false);
-            //Invoke("DestroyPlayer",destroyPlyerDelay);
+            Invoke("GameOver",destroyPlyerDelay);
         }
         if (!gotHit)
         {
@@ -46,7 +50,7 @@ public class Collision : MonoBehaviour
             playerHealth -= 1;
             Handheld.Vibrate();
             gotHit = false;
-            Invoke("GotHit",sparklingEffect);
+            Invoke("GotHit",sparklingEffectTime);
             hitEffect.Play();
             other.gameObject.SetActive(false);
         } else if (other.tag == "Obstacle") {
@@ -64,8 +68,12 @@ public class Collision : MonoBehaviour
         alphaTimer = 0f;
     }
 
-    void DestroyPlayer(){
+    void GameOver(){
+        gameOverCanvas.gameObject.SetActive(true);
+        gameCanvas.gameObject.SetActive(false);
+        Time.timeScale = 0;
         gameObject.SetActive(false);
+
         //SceneManager.LoadScene(0);
     }
 }

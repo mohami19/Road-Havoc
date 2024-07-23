@@ -14,19 +14,21 @@ public class LeaderBoardManager : MonoBehaviour
     // Start is called before the first frame update
 
     private const string scheme = "http";
-    private const string host = "127.0.0.1";
+    private const string host = "62.106.95.170";
     private const int port = 7350;
     private const string serverKey = "defaultkey";
     private Client client;
-    private string deviceId = "f49da7fc-91e8-49e1-befb-960aaef15cc1";
+    private string deviceId;
     private ISession session;
 
     async void Start()
     {   
+        // myDeviceID = 514f368d37e872c3bc97aa11a3daf2180cb7bd14
+        deviceId = SystemInfo.deviceUniqueIdentifier;
         leaderBoardNames.text = "";
         leaderBoardScore.text = "";
         client =  new Client(scheme, host, port, serverKey);
-        session = await client.AuthenticateDeviceAsync(deviceId);
+        session = await client.AuthenticateDeviceAsync(deviceId,"TestUser3");
         GetLeaderBoard();
     }
 
@@ -34,10 +36,10 @@ public class LeaderBoardManager : MonoBehaviour
     {   
 
         var result = await client.RpcAsync(session, "get_bucket_records");
-        var shit = result.Payload.FromJson<Records>();
-        for (int i = 0; i < shit.records.Count; i++) {
-            leaderBoardNames.text += shit.records[i].username.value + "\n";
-            leaderBoardScore.text += shit.records[i].score + "\n";
+        var records = result.Payload.FromJson<Records>();
+        for (int i = 0; i < records.records.Count; i++) {
+            leaderBoardNames.text += records.records[i].username.value + "\n";
+            leaderBoardScore.text += records.records[i].score + "\n";
         }
 
     }

@@ -29,11 +29,11 @@ public class LightManger : MonoBehaviour
     } 
     private void Update() {
         if (!isNight){    
-            speedMultiplier += Time.deltaTime * 0.0000009f; // the real constant is : 0.0000009f
+            speedMultiplier += Time.deltaTime * 0.0000009f * Time.timeScale; // the real constant is : 0.0000009f
             if (gameLight.intensity > 0.5f) {   
-                sunMultiplier += Time.deltaTime * 0.0000009f;
+                sunMultiplier += Time.deltaTime * 0.0000009f * Time.timeScale;
             } else {
-                sunMultiplier -= Time.deltaTime * 0.0000009f;
+                sunMultiplier -= Time.deltaTime * 0.0000009f * Time.timeScale;
             }
             if (gameLight.intensity > minGameLight && rightLight.intensity <= maxCarLight){
                 gameLight.intensity -= speedMultiplier;
@@ -48,13 +48,13 @@ public class LightManger : MonoBehaviour
                 timer += Time.deltaTime;
             }
         } else {
-            speedMultiplier += Time.deltaTime * 0.0000009f;
+            speedMultiplier += Time.deltaTime * 0.0000009f * Time.timeScale;
             if (gameLight.intensity > 0.3f) {   
                 Debug.Log("Decreeing");
-                sunMultiplier -= Time.deltaTime * 0.0000009f;
+                sunMultiplier -= Time.deltaTime * 0.0000009f * Time.timeScale;
             } else {
                 Debug.Log("Adding");
-                sunMultiplier += Time.deltaTime * 0.0000009f;
+                sunMultiplier += Time.deltaTime * 0.0000009f * Time.timeScale;
             }
             if (gameLight.intensity < maxGameLight && rightLight.intensity >= minCarLight){
                 gameLight.intensity += speedMultiplier;

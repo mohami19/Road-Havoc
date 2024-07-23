@@ -739,7 +739,6 @@ GameObject:
   - component: {fileID: 551599601}
   - component: {fileID: 551599598}
   - component: {fileID: 551599604}
-  - component: {fileID: 551599605}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -835,6 +834,7 @@ MonoBehaviour:
   turnLeftAnimationClip: {fileID: 7400000, guid: a7b4af40a01b15344a16e695d3f9c8e9, type: 2}
   scoreText: {fileID: 170277780}
   moveSpeed: 40
+  maxHealth: 5
   progressBar: {fileID: 298837395}
 --- !u!95 &551599600
 Animator:
@@ -869,8 +869,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96201f2bf94f5a54895ed6af528d1535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverCanvas: {fileID: 1160226466}
+  gameCanvas: {fileID: 1096287032}
   destroyPlyerDelay: 0.6
   hitEffect: {fileID: 1781199569}
+  sparklingEffectTime: 4
   alphaChangeSpeed: 10
 --- !u!70 &551599602
 CapsuleCollider2D:
@@ -951,36 +954,6 @@ MonoBehaviour:
   fireButton: {fileID: 1823204503}
   timer: 0
   timeBetweenSpawns: 1
---- !u!114 &551599605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551599595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9afda0fb3095fec40b1760b4d6f516df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOverEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1160226463}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  gameOverCanvas: {fileID: 1160226466}
-  gameCanvas: {fileID: 1096287032}
-  score: {fileID: 170277780}
 --- !u!1 &615624712
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,7 +1112,7 @@ GameObject:
   - component: {fileID: 633807803}
   - component: {fileID: 633807802}
   m_Layer: 5
-  m_Name: Score
+  m_Name: Final Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2003,6 +1976,7 @@ GameObject:
   - component: {fileID: 1160226466}
   - component: {fileID: 1160226465}
   - component: {fileID: 1160226464}
+  - component: {fileID: 1160226468}
   m_Layer: 5
   m_Name: GameOverCanvas
   m_TagString: Untagged
@@ -2095,6 +2069,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1160226468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160226463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9afda0fb3095fec40b1760b4d6f516df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: {fileID: 170277780}
+  submitScore: {fileID: 633807802}
 --- !u!1 &1190697172
 GameObject:
   m_ObjectHideFlags: 0
@@ -3273,5 +3261,5 @@ SceneRoots:
   - {fileID: 863805119}
   - {fileID: 1733690757}
   - {fileID: 1719629014}
-  - {fileID: 1160226467}
   - {fileID: 1119356977}
+  - {fileID: 1160226467}

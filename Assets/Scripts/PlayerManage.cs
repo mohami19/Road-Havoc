@@ -36,9 +36,9 @@ public class PlayerManage : MonoBehaviour
 
 
     [Header("Health")]
-    private int maxHealth = 5;
-    private int _health;
+    [SerializeField] private int maxHealth = 5;
     [SerializeField] Slider progressBar; 
+    private int _health;
 
 
     public int Health
