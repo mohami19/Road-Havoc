@@ -42,6 +42,8 @@ public class Collision : MonoBehaviour
             string score = Mathf.RoundToInt(GetComponent<PlayerManage>().Score).ToString();
             if (int.TryParse(score, out int scoreInt)) {
                 GetComponent<PlayerManage>().Score = scoreInt +2;
+                int gemNum = int.Parse(FindObjectOfType<MoneyManagement>().Gems) + 1;
+                FindObjectOfType<MoneyManagement>().Gems = gemNum.ToString();
             }
             other.gameObject.SetActive(false);
         }

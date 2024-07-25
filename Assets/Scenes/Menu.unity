@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 351383121}
   - component: {fileID: 351383122}
-  - component: {fileID: 351383123}
   m_Layer: 0
   m_Name: Leader Board Manager
   m_TagString: Untagged
@@ -150,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 351383120}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 375, y: 667, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -170,19 +169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leaderBoardNames: {fileID: 2023137778}
   leaderBoardScore: {fileID: 807267041}
---- !u!114 &351383123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 351383120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3f07045b029dda4a8272cad333841ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   inputField: {fileID: 1461350894}
+  loadDelay: 1.5
 --- !u!1 &445632296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,9 +1496,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 351383123}
-        m_TargetAssemblyTypeName: ChangeName, Assembly-CSharp
-        m_MethodName: ChangeUsername
+      - m_Target: {fileID: 351383122}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: ChangeName
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1826,6 +1814,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023137776}
   m_CullTransparentMesh: 1
+--- !u!1001 &9117935956497056923
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 630240499965902585, guid: 72cfb600e2c9aee4b96b92a482d51efb, type: 3}
+      propertyPath: m_Name
+      value: Clinet Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567832326760492096, guid: 72cfb600e2c9aee4b96b92a482d51efb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567832326760492096, guid: 72cfb600e2c9aee4b96b92a482d51efb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567832326760492096, guid: 72cfb600e2c9aee4b96b92a482d51efb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567832326760492096, guid: 72cfb600e2c9aee4b96b92a482d51efb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567832326760492096, guid: 72cfb600e2c9aee4b96b92a482d51efb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567832326760492096, guid: 72cfb600e2c9aee4b96b92a482d51efb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567832326760492096, guid: 72cfb600e2c9aee4b96b92a482d51efb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567832326760492096, guid: 72cfb600e2c9aee4b96b92a482d51efb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567832326760492096, guid: 72cfb600e2c9aee4b96b92a482d51efb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567832326760492096, guid: 72cfb600e2c9aee4b96b92a482d51efb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72cfb600e2c9aee4b96b92a482d51efb, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1833,4 +1878,5 @@ SceneRoots:
   - {fileID: 1118990436}
   - {fileID: 1559183785}
   - {fileID: 803671928}
+  - {fileID: 9117935956497056923}
   - {fileID: 351383121}

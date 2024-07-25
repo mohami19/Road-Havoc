@@ -1,32 +1,24 @@
-using Nakama;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    private int playerHealth;
-
-    //[SerializeField] private UnityEvent<int> gameOverEvent;
     [SerializeField] TextMeshProUGUI score;
     [SerializeField] TextMeshProUGUI submitScore;
-    
-    private const string scheme = "http";
-    private const string host = "62.106.95.170";
-    private const int port = 7350;
-    private const string serverKey = "defaultkey";
-    private Client client;
-    private ISession session;
+    [SerializeField] TextMeshProUGUI gemCollect;
 
-    async void Awake() {
+    private ClientManager clientManager;
+
+
+    void Awake() {
         submitScore.text = score.text;
-        client =  new Client(scheme, host, port, serverKey);
-        session = await client.AuthenticateDeviceAsync(SystemInfo.deviceUniqueIdentifier,"TestUser3",false);
-        //score.text = Mathf.RoundToInt(GetComponent<PlayerManage>().Score).ToString();
-        if (int.TryParse(submitScore.text, out int scoreInt)) {
-            await client.WriteLeaderboardRecordAsync(session,"bucketed_weekly",scoreInt);
-        } else {
-            Debug.Log("Failed to parse score text to int.");
-        }
+        clientManager = FindObjectOfType<ClientManager>();
+        clientManager.UpdateScore(submitScore);
+        clientManager.UpdateWallet(int.Parse(gemCollect.text),0);
+    }
+
+    public void RestartLvl(){
+        SceneManager.LoadScene(0);
     }
 }
