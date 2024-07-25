@@ -55,7 +55,7 @@ public class ClientManager : MonoBehaviour
         }
     }
 
-    public async void ChangeGemNum(TextMeshProUGUI gems,TextMeshProUGUI coins) {
+    public async void GetWallet(TextMeshProUGUI gems,TextMeshProUGUI coins) {
         var result = await client.GetAccountAsync(session);
         gems.text = result.Wallet.FromJson<Wallet>().gems.ToString();
         coins.text = result.Wallet.FromJson<Wallet>().coins.ToString();
