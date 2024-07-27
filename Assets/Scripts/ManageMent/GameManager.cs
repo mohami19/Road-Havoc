@@ -9,8 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _speedMultiplier = 2f;
 
 
-    public float SpeedMultiplier
-    {
+    public float SpeedMultiplier {
         get { return _speedMultiplier; }
         set 
         { 
@@ -18,15 +17,11 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         _speedMultiplier += Time.deltaTime * 0.2f;
 
         timer += Time.deltaTime;
@@ -39,9 +34,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void RandomSpawn(){
+    void RandomSpawn() {
         int randPoint = Random.Range(0,spawnPoints.Length);
         int randObstacle = Random.Range(0,obstacles.Length);
-        Instantiate(obstacles[randObstacle],spawnPoints[randPoint].transform.position,Quaternion.identity);
+        GameObject obstacle = Instantiate(obstacles[randObstacle],spawnPoints[randPoint].transform.position,Quaternion.identity);
+        obstacle.transform.SetParent(GameObject.Find("Obstacles").transform);
     }
 }

@@ -5,21 +5,30 @@ using UnityEngine.Rendering.Universal;
 
 public class LightManger : MonoBehaviour
 {
+    #region Lights
     [SerializeField] Light2D rightLight;
     [SerializeField] Light2D leftLight;
     [SerializeField] Light2D gameLight;
     [SerializeField] Light2D sun;
+    #endregion
 
-    [SerializeField] private float timer = 0.8f;
-    private bool isNight = false;
-    private float nightTime = 50f;
+    #region Max and Min Light 
     private readonly float minGameLight = 0;
     private readonly float maxGameLight = 1;
     private readonly float maxCarLight = 2;
     private readonly float minCarLight = 0;
+    #endregion
+
+    #region Time Setting
+    private readonly float nightTime = 50f;
+    private bool isNight = false;
+    [SerializeField] private float timer = 0.8f;
+    private readonly float timeMultiplier = 0.0000009f; // the real constant is : 0.0000009f
     private bool changeSun = true;
     private float speedMultiplier = 0;
     private float sunMultiplier = 0;
+    #endregion
+
     private void Start() {
         sun.enabled = true;
         gameLight.intensity = 1;
@@ -29,11 +38,11 @@ public class LightManger : MonoBehaviour
     } 
     private void Update() {
         if (!isNight){    
-            speedMultiplier += Time.deltaTime * 0.0000009f * Time.timeScale; // the real constant is : 0.0000009f
+            speedMultiplier += Time.deltaTime * timeMultiplier * Time.timeScale; 
             if (gameLight.intensity > 0.5f) {   
-                sunMultiplier += Time.deltaTime * 0.0000009f * Time.timeScale;
+                sunMultiplier += Time.deltaTime * timeMultiplier * Time.timeScale;
             } else {
-                sunMultiplier -= Time.deltaTime * 0.0000009f * Time.timeScale;
+                sunMultiplier -= Time.deltaTime * timeMultiplier * Time.timeScale;
             }
             if (gameLight.intensity > minGameLight && rightLight.intensity <= maxCarLight){
                 gameLight.intensity -= speedMultiplier;
@@ -48,13 +57,13 @@ public class LightManger : MonoBehaviour
                 timer += Time.deltaTime;
             }
         } else {
-            speedMultiplier += Time.deltaTime * 0.0000009f * Time.timeScale;
+            speedMultiplier += Time.deltaTime * timeMultiplier * Time.timeScale;
             if (gameLight.intensity > 0.3f) {   
                 Debug.Log("Decreeing");
-                sunMultiplier -= Time.deltaTime * 0.0000009f * Time.timeScale;
+                sunMultiplier -= Time.deltaTime * timeMultiplier * Time.timeScale;
             } else {
                 Debug.Log("Adding");
-                sunMultiplier += Time.deltaTime * 0.0000009f * Time.timeScale;
+                sunMultiplier += Time.deltaTime * timeMultiplier * Time.timeScale;
             }
             if (gameLight.intensity < maxGameLight && rightLight.intensity >= minCarLight){
                 gameLight.intensity += speedMultiplier;

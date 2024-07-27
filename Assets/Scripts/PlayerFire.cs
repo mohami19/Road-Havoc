@@ -15,6 +15,7 @@ public class PlayerFire : MonoBehaviour
     void Update() {
         Fire();
     }
+    
     public void Fire(){
         for (int i = 0; i < Input.touchCount; i++){
             if (Input.touches[i].phase == TouchPhase.Stationary || Input.touches[i].phase == TouchPhase.Moved) {
@@ -31,10 +32,10 @@ public class PlayerFire : MonoBehaviour
 
     void SpawnBullet(float degree){
         Vector3 spawnPosition = transform.position + new Vector3(0,1,0);
-        Vector2 direction = new Vector2(Mathf.Cos(degree * Mathf.Deg2Rad), Mathf.Sin(degree * Mathf.Deg2Rad));        
+        Vector2 direction = new (Mathf.Cos(degree * Mathf.Deg2Rad), Mathf.Sin(degree * Mathf.Deg2Rad));        
         
         GameObject newBullet = Instantiate(bullet, spawnPosition, Quaternion.Euler(0,0,90));
-        
+        newBullet.transform.SetParent(GameObject.Find("Bullets").transform);
         BulletManagement bulletManagement = newBullet.GetComponent<BulletManagement>();
         bulletManagement.Direction = direction;
     }
