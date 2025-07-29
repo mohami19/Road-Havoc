@@ -17,8 +17,8 @@ public class MoneyManagement : MonoBehaviour
     private ClientManager clientManager;
 
     void Start() {
-        clientManager = FindObjectOfType<ClientManager>();
-        clientManager.GetWallet(numberOfGem,numberOfCoins);
+        // clientManager = FindObjectOfType<ClientManager>();
+        // clientManager.GetWallet(numberOfGem,numberOfCoins);
         gemCollect.text = Gems;
     }
 
@@ -26,7 +26,7 @@ public class MoneyManagement : MonoBehaviour
     void Update() {
         gemCollect.text = Gems;
     }
-    
+
 }
 
 

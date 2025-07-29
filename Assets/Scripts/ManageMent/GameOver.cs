@@ -13,9 +13,9 @@ public class GameOver : MonoBehaviour
 
     void Awake() {
         submitScore.text = score.text;
-        clientManager = FindObjectOfType<ClientManager>();
-        clientManager.UpdateScore(submitScore);
-        clientManager.UpdateWallet(int.Parse(gemCollect.text),0);
+        // clientManager = FindObjectOfType<ClientManager>();
+        // clientManager.UpdateScore(submitScore);
+        // clientManager.UpdateWallet(int.Parse(gemCollect.text),0);
     }
 
     public void RestartLvl(){

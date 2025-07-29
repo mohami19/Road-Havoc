@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &67645904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 67645905}
+  m_Layer: 0
+  m_Name: Obstacles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &67645905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67645904}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &170277778
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,7 +1167,7 @@ MonoBehaviour:
   turnLeftAnimationClip: {fileID: 7400000, guid: a7b4af40a01b15344a16e695d3f9c8e9, type: 2}
   scoreText: {fileID: 170277780}
   moveSpeed: 40
-  maxHealth: 2
+  maxHealth: 5
   progressBar: {fileID: 298837395}
 --- !u!95 &551599600
 Animator:
@@ -2435,7 +2466,7 @@ MonoBehaviour:
   - {fileID: 8446712759301585155, guid: 0f7b59e21b23b65429729be7fadc4977, type: 3}
   timer: 0
   timeBetweenSpawns: 1
-  _speedMultiplier: 2
+  _speedMultiplier: 2.5
 --- !u!4 &1140405584
 Transform:
   m_ObjectHideFlags: 0
@@ -2868,6 +2899,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326511114}
   m_CullTransparentMesh: 1
+--- !u!1 &1439090672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1439090673}
+  m_Layer: 0
+  m_Name: Bullets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1439090673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439090672}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1508468420
 GameObject:
   m_ObjectHideFlags: 0
@@ -4128,3 +4190,5 @@ SceneRoots:
   - {fileID: 1719629014}
   - {fileID: 1119356977}
   - {fileID: 1160226467}
+  - {fileID: 1439090673}
+  - {fileID: 67645905}

@@ -37,7 +37,8 @@ public class GameManager : MonoBehaviour
     void RandomSpawn() {
         int randPoint = Random.Range(0,spawnPoints.Length);
         int randObstacle = Random.Range(0,obstacles.Length);
-        GameObject obstacle = Instantiate(obstacles[randObstacle],spawnPoints[randPoint].transform.position,Quaternion.identity);
+        GameObject obstacle = Instantiate(obstacles[randObstacle],
+                    spawnPoints[randPoint].transform.position,Quaternion.identity);
         obstacle.transform.SetParent(GameObject.Find("Obstacles").transform);
     }
 }
